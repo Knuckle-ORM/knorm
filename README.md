@@ -1,1 +1,1 @@
-# knorm - a framework, a design pattern using angular in joomla, with knuckle.
+# knorm - a framework, a design pattern,a boilerplate; using angular in joomla, with knuckle.
