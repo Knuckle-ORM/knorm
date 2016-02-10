@@ -1,0 +1,63 @@
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings">
+                <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+            </md-button>
+            <h2>
+                <span>Norm</span>
+            </h2>
+            <span flex></span>
+            <md-button aria-label="Create Knorm" ui-sref="knorm.item">
+                <md-icon><i class="material-icons">add_circle_outline</i></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content flex>
+        <md-subheader class="md-1-line">
+            <div layout="row" layout-align="space-around center" flex>
+                <div flex="5"></div>
+                <div flex="15" ng-click="Ctrl.changeOrder('created')" layout="row" layout-align="center center">
+                    <i class="material-icons">{{Ctrl.columnSortState.created || 'sort'}}</i>
+                    <span layout-fill flex>Created</span>
+                </div>
+                <div flex="30">
+                    Norm1
+                </div>
+                <div flex="30">
+                    Norm2
+                </div>
+                <div flex="30">
+                    Norm3
+                </div>
+            </div>
+        </md-subheader>
+        <md-divider class="md-1-line"></md-divider>
+        <md-list ng-if="Ctrl.items.length">
+            <md-list-item  class="md-1-line"
+                           dir-paginate="item in Ctrl.items | itemsPerPage: Ctrl.pageSize"
+                           current-page="Ctrl.currentPage"
+                           pagination-id="knorm"
+                           total-items="Ctrl.total_items">
+
+                <div flex="5">
+                    <a ui-sref="knorm.item({id:item.id})" >
+                        <i class="fa fa-edit"></i>
+                    </a>
+                </div>
+                <div flex="20">
+                    {{item.created * 1000 | date:'shortDate' }}
+                </div>
+                <div flex="20">{{item.norm1}}</div>
+                <div flex="20">{{item.norm2}}</div>
+                <div flex="20">{{item.norm3}}</div>
+            </md-list-item>
+        </md-list>
+        <dir-pagination-controls ng-if="Ctrl.items.length"
+                                 direction-links="true"
+                                 boundary-links="true"
+                                 auto-hide="true"
+                                 pagination-id="knorm"
+                ></dir-pagination-controls>
+        <h1 ng-if="!Ctrl.items.length">No Orders To Display</h1>
+    </md-content>

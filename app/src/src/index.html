@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="norm" ng-controller="AppCtrl" class="fixed">
+    <head>
+        <title>Knorm</title>
+
+        <!-- social media tags -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- font awesome from BootstrapCDN -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+        <link rel="stylesheet" type="text/css" href="/media/com_knorm/lib/knorm/<%= file %>" /><% }); %>
+
+        <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+        <script type="text/javascript" src="/media/com_knorm/lib/knorm/<%= file %>"></script><% }); %>
+
+    </head>
+    <body style="overflow:hidden;">
+        <section class="body" style="height:100%" >
+
+        <!-- start: header -->
+            <header class="header">
+                <h2>Knorm</h2>
+            </header>
+        <!-- end: header -->
+
+        <div class="inner-wrapper" style="height:100%" >
+
+            <section role="main" class="content-body" style="height:100%" >
+
+
+                <!-- start: page -->
+                <div class="row layout-column" ui-view="main" style="height:100%" ></div>
+                <!-- end: page -->
+            </section>
+        </div>
+
+    </section>
+        <script>
+            jQuery(document).ready(function(){
+              jQuery('.navbar-btn').on('click',function(){
+                  $("#wrapper").toggleClass("oc_open");
+              });
+            });
+        </script>
+    </body>
+</html>
